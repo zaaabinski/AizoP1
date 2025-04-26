@@ -1,0 +1,2 @@
+InsertionSort;int;100000;6440ms
+QuickSort;int;100000;13ms
