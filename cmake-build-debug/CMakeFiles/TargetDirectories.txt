@@ -1,0 +1,3 @@
+C:/Users/jakmi/Documents/GitHub/CPP/AizoP1/cmake-build-debug/CMakeFiles/AizoP1.dir
+C:/Users/jakmi/Documents/GitHub/CPP/AizoP1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jakmi/Documents/GitHub/CPP/AizoP1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
