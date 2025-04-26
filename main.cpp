@@ -8,6 +8,7 @@
 
 template<typename T>
 void handleTestMode(int size, const std::string& outputFilePath) {
+    Timer timer;
     std::vector<T> data(size);
     DataGenerator<T> generator;
     generator.generateData(size, data.data());
@@ -19,7 +20,9 @@ void handleTestMode(int size, const std::string& outputFilePath) {
     }
 
     // Sortowanie danych
+    timer.start(); // Start timer
     std::vector<T> sortedData = Sorter<T>::bubbleSort(data);
+    timer.stop(); // Stop timer
 
     // Zapis posortowanych danych do nowego pliku
     std::string sortedFilePath = "sorted_" + outputFilePath;
@@ -28,10 +31,11 @@ void handleTestMode(int size, const std::string& outputFilePath) {
     } else {
         std::cerr << "Failed to save sorted data." << std::endl;
     }
+    std::cout << "Elapsed time: " << timer.result() << " ms" << std::endl;
 }
 
 int main(int argc, char* argv[]) {
-    Timer timer;
+    
     if (argc < 4) {
         std::cerr << "Usage: <mode> <type> <file or size> [outputFile]" << std::endl;
         return 1;
@@ -44,7 +48,6 @@ int main(int argc, char* argv[]) {
         int size = std::stoi(argv[3]);
         std::string outputFilePath = argv[4];
         
-         timer.start(); // Start timer
         if (type == "int") {
             handleTestMode<int>(size, outputFilePath);
         } else if (type == "float") {
@@ -61,8 +64,7 @@ int main(int argc, char* argv[]) {
         std::cerr << "Unknown mode. Use 'test' or 'file'." << std::endl;
         return 1;
     }
-    timer.stop(); // Stop timer
 
-    std::cout << "Elapsed time: " << timer.result() << " ms" << std::endl;
+   
     return 0;
 }
