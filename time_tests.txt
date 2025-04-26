@@ -1,2 +1,3 @@
-InsertionSort;int;100000;6440ms
-QuickSort;int;100000;13ms
+HeapSort;i;100000;22ms;partial33
+HeapSort;i;100000;18ms;descending
+HeapSort;i;100000;20ms;ascending
